@@ -38,6 +38,8 @@ public class endlessController : MonoBehaviour {
 
         if (h * rigi.velocity.x < maxSpeed)
             rigi.AddForce(Vector2.right * h * moveForce);
+		if (Mathf.Abs(rigi.velocity.x) > maxSpeed)
+            rigi.velocity = new Vector2(Mathf.Sign(rigi.velocity.x) * maxSpeed, rigi.velocity.y);
         if (jump)
         {
             rigi.AddForce(new Vector2(0f, jumpForce));
